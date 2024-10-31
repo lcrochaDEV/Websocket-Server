@@ -39,6 +39,7 @@ deactivate
 ### Instalação de Bibliotecas: 
 ```shell
 pip install websockets
+pip install python-dotenv
 ```
 #### Iniciando o servidor Uvincorn
 ```shell

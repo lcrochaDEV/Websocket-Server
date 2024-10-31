@@ -1,9 +1,8 @@
 class RaspBerryPI:
   
     @staticmethod
-    def hostname():
+    def hostname(cli):
       return ['hostname']
-
 
 
 '''
