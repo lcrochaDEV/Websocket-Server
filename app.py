@@ -2,7 +2,8 @@ from dotenv import load_dotenv
 import os
 from Async.ClassAsync import AssyncExec
 from ClassHosts.Server import Server
-from ClassHosts.ClienteDebug import ClienteDebug
+from ClassHosts.Client import Client
+from ClassHosts.ClientDebug import ClientDebug
 load_dotenv()
 
 SERVER = os.getenv("SERVER")
@@ -15,8 +16,15 @@ AssyncExec.asyncAction(
     Server.realTimeRequest(SERVER, SERVER_PORT),
     Server.commandDebug(SERVER, CLIENT_DEBUG),
 )
-'''
+
 #START CLIENT
 AssyncExec.asyncAction(
-    ClienteDebug.ClienteDebug_realTimeRequest(SERVER, CLIENT_DEBUG),
+    ClientDebug.client(CLIENT, SERVER_PORT),
 )
+'''
+
+#START CLIENT
+AssyncExec.asyncAction(
+   ClientDebug.debug(SERVER, CLIENT_DEBUG),
+)
+
