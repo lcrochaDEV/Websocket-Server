@@ -8,6 +8,7 @@ load_dotenv()
 
 SERVER = os.getenv("SERVER")
 SERVER_PORT = os.getenv("SERVER_PORT")
+CLIENT = os.getenv("CLIENT")
 CLIENT_DEBUG = os.getenv("CLIENT_DEBUG")
 
 '''
@@ -16,15 +17,15 @@ AssyncExec.asyncAction(
     Server.realTimeRequest(SERVER, SERVER_PORT),
     Server.commandDebug(SERVER, CLIENT_DEBUG),
 )
-
+'''
 #START CLIENT
 AssyncExec.asyncAction(
     ClientDebug.client(CLIENT, SERVER_PORT),
 )
-'''
 
+'''
 #START CLIENT
 AssyncExec.asyncAction(
    ClientDebug.debug(SERVER, CLIENT_DEBUG),
 )
-
+'''
