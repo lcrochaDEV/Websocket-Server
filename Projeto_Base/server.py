@@ -26,6 +26,4 @@ def connect_client_ip(websocket):
     IP_CLIENTE = websocket.remote_address
     print(f'Host IP: {IP_CLIENTE[0]} Conectado.')
 
-AssyncExec.asyncAction(main(),)
-
-#asyncio.get_event_loop().run_until_complete(main())
+asyncio.get_event_loop().run_until_complete(main())

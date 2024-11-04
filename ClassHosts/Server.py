@@ -11,6 +11,8 @@ class Server:
 
     @classmethod
     async def _report(self, websocket):
+        await self._connect_client_ip(websocket)
+        
         reply = await websocket.recv()
         command = check_output(reply)
         await websocket.send(command)
@@ -38,6 +40,6 @@ class Server:
         print(f'Host IP: {IP_CLIENTE[0]} Conectado.')
 
     @classmethod
-    async def _main(self, SERVER, SERVIDOR, PORT):
-        async with websockets.serve(SERVER, SERVIDOR, PORT):
+    async def _main(self, HOST, SERVIDOR, PORT):
+        async with websockets.serve(HOST, SERVIDOR, PORT):
             await asyncio.Future()  # run forever
